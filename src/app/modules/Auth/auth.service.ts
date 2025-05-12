@@ -20,7 +20,6 @@ const loginUserIntoDB = async (payload: {
       isActive: true,
     },
   });
-
   const isPassswordCorrect: boolean = await bcrypt.compare(
     payload.password,
     userData.password
@@ -40,7 +39,6 @@ const loginUserIntoDB = async (payload: {
     config.jwt.jwt_secret as string,
     config.jwt.jwt_expiration as string
   );
-
   const refreshToken = generateToken(
     {
       email: userData.email,
@@ -51,6 +49,7 @@ const loginUserIntoDB = async (payload: {
     config.jwt.refresh_secret as string,
     config.jwt.jwt_refresh_expiration as string
   );
+  console.log("refreshToken",refreshToken)
 
   return {
     accessToken,
