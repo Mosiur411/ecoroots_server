@@ -10,7 +10,7 @@ This is the backend for EcoRoots, a sustainability-focused idea-sharing platform
 
 ## 🌍 Live URL
 
-- [Back-end](https://think-greenly-serverside.vercel.app)
+- [Back-end](https://ecorootsserver.vercel.app)
 
 ## 📂 Repository Link
 - [Back-end](https://github.com/Mosiur411/ecoroots_server)
