@@ -1,0 +1,10 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = require("express");
+const category_controller_1 = require("./category.controller");
+const auth_1 = require("../../middlewares/auth");
+const client_1 = require("@prisma/client");
+const CategoryRoutes = (0, express_1.Router)();
+CategoryRoutes.post('/', (0, auth_1.auth)(client_1.Role.ADMIN), category_controller_1.CategoryController.createCategory);
+CategoryRoutes.get('/', category_controller_1.CategoryController.getAllCategories);
+exports.default = CategoryRoutes;

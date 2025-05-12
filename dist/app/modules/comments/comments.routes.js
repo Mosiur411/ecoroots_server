@@ -1,0 +1,11 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = require("express");
+const comments_controller_1 = require("./comments.controller");
+const auth_1 = require("../../middlewares/auth");
+const client_1 = require("@prisma/client");
+const CommentsRoutes = (0, express_1.Router)();
+CommentsRoutes.post('/', (0, auth_1.auth)(client_1.Role.MEMBER, client_1.Role.ADMIN), comments_controller_1.commentController.createComments);
+CommentsRoutes.get('/:id', (0, auth_1.auth)(client_1.Role.MEMBER, client_1.Role.ADMIN), comments_controller_1.commentController.getCommentsByIdeaId);
+CommentsRoutes.delete('/:id', (0, auth_1.auth)(client_1.Role.ADMIN, client_1.Role.MEMBER), comments_controller_1.commentController.deleteComments);
+exports.default = CommentsRoutes;
