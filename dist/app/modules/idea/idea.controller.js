@@ -58,7 +58,7 @@ IdeaControllers.createAnIdea = (0, catchAsync_1.default)((req, res) => __awaiter
             const { secure_url } = yield (0, cloudinaryImageUploader_1.sendImageToCloudinary)(imageName, path);
             return secure_url;
         })));
-        payload.images = [...payload.images, ...imageUrls];
+        payload.images = [...imageUrls];
     }
     const result = yield idea_service_1.IdeaServices.createAnIdeaIntoDB(req.user, payload);
     (0, sendResponse_1.default)(res, {

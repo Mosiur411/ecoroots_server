@@ -15,7 +15,7 @@ IdeaRoutes.post('/draft', cloudinaryImageUploader_1.uploadFile.array('images', 1
     req.body = JSON.parse(req.body.data);
     next();
 }, (0, validateRequest_1.default)(idea_validation_1.ideaValidationSchemas.draftAnIdea), idea_controller_1.IdeaControllers.draftAnIdea);
-IdeaRoutes.post('/', cloudinaryImageUploader_1.uploadFile.array('images', 10), (req, res, next) => {
+IdeaRoutes.post('/', cloudinaryImageUploader_1.uploadFile.array('images', 10), (0, auth_1.auth)(client_1.Role.MEMBER, client_1.Role.ADMIN), (req, res, next) => {
     req.body = JSON.parse(req.body.data);
     next();
 }, (0, validateRequest_1.default)(idea_validation_1.ideaValidationSchemas.createAnIdea), idea_controller_1.IdeaControllers.createAnIdea);
