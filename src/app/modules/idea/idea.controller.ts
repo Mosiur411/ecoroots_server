@@ -48,9 +48,8 @@ export class IdeaControllers {
           return secure_url;
         })
       );
-      payload.images = [...payload.images, ...imageUrls];
+      payload.images = [...imageUrls];
     }
-
     const result = await IdeaServices.createAnIdeaIntoDB(req.user, payload);
     sendResponse(res, {
       statusCode: httpStatus.OK,
