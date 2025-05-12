@@ -49,7 +49,6 @@ const loginUserIntoDB = async (payload: {
     config.jwt.refresh_secret as string,
     config.jwt.jwt_refresh_expiration as string
   );
-  console.log("refreshToken",refreshToken)
 
   return {
     accessToken,
